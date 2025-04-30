@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - AI CCTV System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2098/2098402.png">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i> AI CCTV System
+            </div>
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="{{ url_for('index') }}" class="nav-link">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="{{ url_for('profile') }}" class="nav-link active">
+                    <i class="fas fa-user-cog"></i> Profile
+                </a>
+                <a href="{{ url_for('add_face_page') }}" class="nav-link">
+                    <i class="fas fa-user-plus"></i> Add Face
+                </a>
+            </div>
+        </nav>
+
+        <header>
+            <h1><i class="fas fa-user-cog"></i> User Profile</h1>
+            <p class="subtitle">Manage your settings and preferences</p>
+        </header>
+        
+        <div class="profile-container">
+            <div class="profile-section">
+                <h2><i class="fas fa-user"></i> Personal Information</h2>
+                <div class="section-content">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" placeholder="Enter your full name" value="Admin User">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email address" value="{{ sender_email }}">
+                    </div>
+                    <button class="action-btn">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                </div>
+            </div>
+            
+            <div class="profile-section">
+                <h2><i class="fas fa-bell"></i> Notification Settings</h2>
+                <div class="section-content">
+                    <div class="notification-option">
+                        <div class="notification-info">
+                            <h3>Email Notifications</h3>
+                            <p>Receive alerts when unknown faces are detected</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="notification-option">
+                        <div class="notification-info">
+                            <h3>Daily Reports</h3>
+                            <p>Get a daily summary of all detections</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="recipient-email-profile">Notification Email</label>
+                        <input type="email" id="recipient-email-profile" placeholder="Enter email for notifications" value="{{ recipient_email }}">
+                    </div>
+                    
+                    <button class="action-btn">
+                        <i class="fas fa-save"></i> Save Notification Settings
+                    </button>
+                </div>
+            </div>
+            
+            <div class="profile-section">
+                <h2><i class="fas fa-lock"></i> Security Settings</h2>
+                <div class="section-content">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" placeholder="Enter current password">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" placeholder="Enter new password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" placeholder="Confirm new password">
+                    </div>
+                    <button class="action-btn">
+                        <i class="fas fa-key"></i> Change Password
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy;CCTV FACE RECOGNITION AND ALERT SYSTEM</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 

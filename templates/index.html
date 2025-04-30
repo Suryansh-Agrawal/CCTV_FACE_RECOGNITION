@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV FACE RECOGNITION AND ALERT SYSTEM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2098/2098402.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-camera-retro"></i> Smart Face Recognition</h1>
+            <p class="subtitle">Secure monitoring with intelligent face detection</p>
+        </header>
+        
+        <div class="control-buttons">
+            <div class="recognition-control">
+                <button id="toggle-recognition-btn" class="toggle-btn active">
+                    <i class="fas fa-eye"></i>
+                    <span class="status-text">Recognition: ON</span>
+                </button>
+            </div>
+            
+            <div class="schedule-control">
+                <button id="schedule-btn" class="action-btn">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Schedule Recognition</span>
+                </button>
+            </div>
+            
+            <div class="email-control">
+                <button id="email-btn" class="action-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email Notifications</span>
+                </button>
+            </div>
+        </div>
+        
+        <div id="schedule-panel" class="schedule-panel" style="display: none;">
+            <h3><i class="fas fa-clock"></i> Schedule Face Recognition</h3>
+            <div class="schedule-form">
+                <div class="time-inputs">
+                    <div class="time-input-group">
+                        <label for="start-time"><i class="fas fa-play"></i> Start Time:</label>
+                        <input type="time" id="start-time" required>
+                    </div>
+                    <div class="time-input-group">
+                        <label for="end-time"><i class="fas fa-stop"></i> End Time:</label>
+                        <input type="time" id="end-time" required>
+                    </div>
+                </div>
+                <div class="schedule-buttons">
+                    <button id="set-schedule-btn" class="action-btn">
+                        <i class="fas fa-save"></i> Set Schedule
+                    </button>
+                    <button id="cancel-schedule-btn" class="action-btn danger" disabled>
+                        <i class="fas fa-times"></i> Cancel Schedule
+                    </button>
+                </div>
+                <div id="schedule-status" class="status-message"></div>
+            </div>
+        </div>
+        
+        <div id="email-panel" class="config-panel" style="display: none;">
+            <h3><i class="fas fa-envelope"></i> Configure Email Notifications</h3>
+            <p class="info-text">Enter your email address below to receive alerts when unknown faces are detected.</p>
+            
+            <div class="form-group">
+                <label for="recipient-email"><i class="fas fa-at"></i> Your Email Address:</label>
+                <input type="email" id="recipient-email" placeholder="Enter your email address">
+            </div>
+            
+            <div class="button-group">
+                <button id="save-email-btn" class="action-btn">
+                    <i class="fas fa-save"></i> Save Email
+                </button>
+                <button id="test-email-btn" class="action-btn">
+                    <i class="fas fa-paper-plane"></i> Send Test Email
+                </button>
+            </div>
+            
+            <button id="toggle-email-btn" class="toggle-btn inactive" disabled>
+                <i class="fas fa-bell"></i>
+                <span class="status-text">Email Alerts: OFF</span>
+            </button>
+            
+            <p id="email-status" class="status-message"></p>
+        </div>
+        
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" alt="Video Feed">
+            <div class="video-overlay">
+                <div class="video-status">Live</div>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <h2><i class="fas fa-info-circle"></i> Face Detection Status</h2>
+            <p id="status">Waiting for faces...</p>
+        </div>
+
+        <div class="control-panel">
+            <div class="known-faces-section">
+                <h2><i class="fas fa-user-check"></i> Known Faces</h2>
+                <div class="section-content">
+                    <div id="known-faces-list">
+                        <p>Loading known faces...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-face-section">
+                <h2><i class="fas fa-user-plus"></i> Add New Face</h2>
+                <div class="section-content">
+                    <div class="add-face-form">
+                        <input type="text" id="face-name" placeholder="Enter name" required>
+                        <button id="capture-btn" class="action-btn">
+                            <i class="fas fa-camera"></i> Capture
+                        </button>
+                        <button id="add-face-btn" class="action-btn" disabled>
+                            <i class="fas fa-plus"></i> Add Face
+                        </button>
+                    </div>
+                    <div class="captured-image-container" id="captured-image-container" style="display: none;">
+                        <h3><i class="fas fa-image"></i> Captured Image</h3>
+                        <canvas id="capture-canvas" width="320" height="240"></canvas>
+                    </div>
+                    <div id="add-face-status" class="status-message"></div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>CCTV FACE RECOGNITION AND ALERT SYSTEM</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI CCTV Face Recognition System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2098/2098402.png">
+</head>
+<body>
+    <div class="home-container">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="welcome-title"><i class="fas fa-shield-alt"></i> Welcome to CCTV FACE RECOGNITION AND ALERT SYSTEM</h1>
+                <p class="welcome-subtitle">Intelligent face recognition security system</p>
+                <div class="welcome-description">
+                    <p>Our advanced AI-powered face recognition system helps you monitor your surroundings with intelligent face detection technology. Get real-time alerts, manage known faces, and enhance your security seamlessly.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-options">
+            <a href="{{ url_for('index') }}" class="nav-card">
+                <div class="nav-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h2>Dashboard</h2>
+                <p>Access your main control panel to monitor video feed and manage face recognition settings.</p>
+                <span class="nav-action">Launch <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a href="{{ url_for('profile') }}" class="nav-card">
+                <div class="nav-icon">
+                    <i class="fas fa-user-cog"></i>
+                </div>
+                <h2>Profile</h2>
+                <p>Manage your personal settings, notification preferences, and system configuration.</p>
+                <span class="nav-action">Settings <i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <a href="{{ url_for('add_face_page') }}" class="nav-card">
+                <div class="nav-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h2>Add Known Face</h2>
+                <p>Add and manage trusted faces that your system should recognize as authorized.</p>
+                <span class="nav-action">Add Face <i class="fas fa-arrow-right"></i></span>
+            </a>
+        </div>
+
+        <!-- <div class="system-stats">
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>{{ known_faces_count }}</h3>
+                    <p>Known Faces</p>
+                </div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>{{ alert_status }}</h3>
+                    <p>Alert Status</p>
+                </div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>{{ system_status }}</h3>
+                    <p>System Status</p>
+                </div>
+            </div>
+        </div> -->
+        
+        <footer>
+            <p>&copy; CCTV FACE RECOGNITION AND ALERT SYSTEM</p>
+        </footer>
+    </div>
+</body>
+</html> 
